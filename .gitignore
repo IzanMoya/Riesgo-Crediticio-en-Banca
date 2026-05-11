@@ -1,0 +1,61 @@
+# ── ML Artefactos ───────────────────────────────────────────
+# Los archivos .pkl son demasiado grandes para Git.
+# Genéralos ejecutando el notebook en Colab (Fase 0).
+artifacts/
+*.pkl
+*.zip
+
+# ── Python ──────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+ENV/
+
+# Variables de entorno
+.env
+.env.*
+!.env.example
+
+# Tests
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# ── Node / Frontend ─────────────────────────────────────────
+node_modules/
+dist/
+.vite/
+*.local
+
+# ── IDEs ────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ── OS ──────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+
+# ── Docker ──────────────────────────────────────────────────
+# Los secretos en .env no se suben; el docker-compose.yml sí.

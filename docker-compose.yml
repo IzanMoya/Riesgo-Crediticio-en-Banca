@@ -1,0 +1,22 @@
+services:
+  backend:
+    build:
+      context: ./frontend/backend
+      dockerfile: Dockerfile
+    container_name: rc-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      # Monta la carpeta de artefactos como solo lectura dentro del contenedor
+      - ./artifacts:/artifacts:ro
+    environment:
+      # Sobreescribe la ruta por defecto definida en config.py
+      - APP_ARTIFACTS_DIR=/artifacts
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/v1/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
